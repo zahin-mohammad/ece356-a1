@@ -628,16 +628,17 @@ CREATE TABLE `SeriesPost` (
 -- ----------------------------
 DROP TABLE IF EXISTS `TeamsHalf`;
 CREATE TABLE `TeamsHalf` (
-  `yearID` int DEFAULT NULL,
+  `yearID` int NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
-  `teamID` varchar(255) DEFAULT NULL,
-  `Half` int DEFAULT NULL,
+  `teamID` varchar(255) NOT NULL,
+  `Half` int NOT NULL,
   `divID` varchar(255) DEFAULT NULL,
   `DivWin` varchar(255) DEFAULT NULL,
   `Rank` int DEFAULT NULL,
   `G` int DEFAULT NULL,
   `W` int DEFAULT NULL,
   `L` decimal(11) DEFAULT NULL,
+  PRIMARY KEY (`teamID`, `yearID`, `Half`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 \w
