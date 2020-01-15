@@ -62,6 +62,19 @@ CREATE TABLE `TeamsFranchises` (
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
+--  Table structure for `Schools`
+-- ----------------------------
+DROP TABLE IF EXISTS `Schools`;
+CREATE TABLE `Schools` (
+  `schoolID` varchar(255) NOT NULL,
+  `name_full` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  PRIMARY KEY(`schoolID`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+
+-- ----------------------------
 --  Table structure for `Teams`
 -- ----------------------------
 DROP TABLE IF EXISTS `Teams`;
@@ -293,7 +306,8 @@ CREATE TABLE `CollegePlaying` (
   `playerID` varchar(255) DEFAULT NULL,
   `schoolID` varchar(255) DEFAULT NULL,
   `yearID` int DEFAULT NULL,
-  FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
+  FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
+  FOREIGN KEY (`schoolID`) REFERENCES Schools(`schoolID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
@@ -565,19 +579,6 @@ CREATE TABLE `Salaries` (
   `salary` int DEFAULT NULL,
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
-
-
--- ----------------------------
---  Table structure for `Schools`
--- ----------------------------
-DROP TABLE IF EXISTS `Schools`;
-CREATE TABLE `Schools` (
-  `schoolID` varchar(255) DEFAULT NULL,
-  `name_full` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `state` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
