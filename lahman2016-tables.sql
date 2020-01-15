@@ -554,10 +554,10 @@ CREATE TABLE `Pitching` (
 -- ----------------------------
 DROP TABLE IF EXISTS `PitchingPost`;
 CREATE TABLE `PitchingPost` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `round` varchar(255) DEFAULT NULL,
-  `teamID` varchar(255) DEFAULT NULL,
+  `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `W` int DEFAULT NULL,
   `L` int DEFAULT NULL,
@@ -584,6 +584,7 @@ CREATE TABLE `PitchingPost` (
   `SH` int DEFAULT NULL,
   `SF` int DEFAULT NULL,
   `GIDP` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`, `yearID`,`teamID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
