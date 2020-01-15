@@ -457,9 +457,9 @@ CREATE TABLE `HomeGames` (
 -- ----------------------------
 DROP TABLE IF EXISTS `Managers`;
 CREATE TABLE `Managers` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
-  `teamID` varchar(255) DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
+  `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `inseason` int DEFAULT NULL,
   `G` int DEFAULT NULL,
@@ -467,6 +467,7 @@ CREATE TABLE `Managers` (
   `L` int DEFAULT NULL,
   `rank` int DEFAULT NULL,
   `plyrMgr` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`teamID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
