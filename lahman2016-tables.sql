@@ -136,14 +136,15 @@ CREATE TABLE `Teams` (
 -- ----------------------------
 DROP TABLE IF EXISTS `AllstarFull`;
 CREATE TABLE `AllstarFull` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `gameNum` int DEFAULT NULL,
-  `gameID` varchar(255) DEFAULT NULL,
+  `gameID` varchar(255) NOT NULL,
   `teamID` varchar(255) DEFAULT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `GP` int DEFAULT NULL,
   `startingPos` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`gameID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
