@@ -609,15 +609,16 @@ CREATE TABLE `Salaries` (
 -- ----------------------------
 DROP TABLE IF EXISTS `SeriesPost`;
 CREATE TABLE `SeriesPost` (
-  `yearID` int DEFAULT NULL,
-  `round` varchar(255) DEFAULT NULL,
-  `teamIDwinner` varchar(255) DEFAULT NULL,
+  `yearID` int NOT NULL,
+  `round` varchar(255) NOT NULL,
+  `teamIDwinner` varchar(255) NOT NULL,
   `lgIDwinner` varchar(255) DEFAULT NULL,
-  `teamIDloser` varchar(255) DEFAULT NULL,
+  `teamIDloser` varchar(255) NOT NULL,
   `lgIDloser` varchar(255) DEFAULT NULL,
   `wins` int DEFAULT NULL,
   `losses` int DEFAULT NULL,
   `ties` int DEFAULT NULL,
+  PRIMARY KEY (`yearID`, `round`,`teamIDwinner`, `teamIDloser`),
   FOREIGN KEY (`teamIDwinner`) REFERENCES Teams(`teamID`),
   FOREIGN KEY (`teamIDloser`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
