@@ -156,7 +156,7 @@ DROP TABLE IF EXISTS `Appearances`;
 CREATE TABLE `Appearances` (
   `yearID` int NOT NULL,
   `teamID` varchar(255) NOT NULL,
-  `lgID` varchar(255) NOT NULL,
+  `lgID` varchar(255) DEFAULT NULL,
   `playerID` varchar(255) NOT NULL,
   `G_all` int DEFAULT NULL,
   `GS` varchar(255) DEFAULT NULL,
@@ -175,7 +175,7 @@ CREATE TABLE `Appearances` (
   `G_dh` varchar(255) DEFAULT NULL,
   `G_ph` varchar(255) DEFAULT NULL,
   `G_pr` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`yearID`, `teamID`, `playerID`, `lgID`),
+  PRIMARY KEY (`yearID`, `teamID`, `playerID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
