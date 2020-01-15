@@ -132,6 +132,21 @@ CREATE TABLE `Teams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
+--  Table structure for `Parks`
+-- ----------------------------
+DROP TABLE IF EXISTS `Parks`;
+CREATE TABLE `Parks` (
+  `park.key` varchar(255) NOT NULL,
+  `park.name` varchar(255) DEFAULT NULL,
+  `park.alias` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`park.key`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+
+
+-- ----------------------------
 --  Table structure for `AllstarFull`
 -- ----------------------------
 DROP TABLE IF EXISTS `AllstarFull`;
@@ -449,7 +464,8 @@ CREATE TABLE `HomeGames` (
   `games` int DEFAULT NULL,
   `openings` int DEFAULT NULL,
   `attendance` int DEFAULT NULL,
-  PRIMARY KEY (`year.key`,`team.key`,`park.key`)
+  PRIMARY KEY (`year.key`,`team.key`,`park.key`),
+  FOREIGN KEY (`park.key`) REFERENCES Parks(`park.key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
@@ -491,20 +507,6 @@ CREATE TABLE `ManagersHalf` (
   PRIMARY KEY (`playerID`,`yearID`,`teamID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
-
--- ----------------------------
---  Table structure for `Parks`
--- ----------------------------
-DROP TABLE IF EXISTS `Parks`;
-CREATE TABLE `Parks` (
-  `park.key` varchar(255) NOT NULL,
-  `park.name` varchar(255) DEFAULT NULL,
-  `park.alias` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `state` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`park.key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
