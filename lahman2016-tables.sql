@@ -247,10 +247,10 @@ CREATE TABLE `AwardsSharePlayers` (
 -- ----------------------------
 DROP TABLE IF EXISTS `Batting`;
 CREATE TABLE `Batting` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `stint` int DEFAULT NULL,
-  `teamID` varchar(255) DEFAULT NULL,
+  `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `G` int DEFAULT NULL,
   `AB` int DEFAULT NULL,
@@ -279,10 +279,10 @@ CREATE TABLE `Batting` (
 -- ----------------------------
 DROP TABLE IF EXISTS `BattingPost`;
 CREATE TABLE `BattingPost` (
-  `yearID` int DEFAULT NULL,
+  `yearID` int NOT NULL,
   `round` varchar(255) DEFAULT NULL,
-  `playerID` varchar(255) DEFAULT NULL,
-  `teamID` varchar(255) DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `G` int DEFAULT NULL,
   `AB` int DEFAULT NULL,
@@ -301,6 +301,7 @@ CREATE TABLE `BattingPost` (
   `SH` varchar(255) DEFAULT NULL,
   `SF` varchar(255) DEFAULT NULL,
   `GIDP` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`, `yearID`, `teamID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
