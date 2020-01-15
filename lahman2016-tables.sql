@@ -478,9 +478,9 @@ CREATE TABLE `Managers` (
 -- ----------------------------
 DROP TABLE IF EXISTS `ManagersHalf`;
 CREATE TABLE `ManagersHalf` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
-  `teamID` varchar(255) DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
+  `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `inseason` int DEFAULT NULL,
   `half` int DEFAULT NULL,
