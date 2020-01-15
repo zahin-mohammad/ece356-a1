@@ -488,6 +488,7 @@ CREATE TABLE `ManagersHalf` (
   `W` int DEFAULT NULL,
   `L` int DEFAULT NULL,
   `rank` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`teamID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
