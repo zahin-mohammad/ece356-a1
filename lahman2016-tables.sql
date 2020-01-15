@@ -200,9 +200,9 @@ CREATE TABLE `AwardsManagers` (
 -- ----------------------------
 DROP TABLE IF EXISTS `AwardsPlayers`;
 CREATE TABLE `AwardsPlayers` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `awardID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `awardID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `tie` varchar(255) DEFAULT NULL,
   `notes` varchar(255) DEFAULT NULL,
@@ -215,13 +215,14 @@ CREATE TABLE `AwardsPlayers` (
 -- ----------------------------
 DROP TABLE IF EXISTS `AwardsShareManagers`;
 CREATE TABLE `AwardsShareManagers` (
-  `awardID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `awardID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
-  `playerID` varchar(255) DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
   `pointsWon` int DEFAULT NULL,
   `pointsMax` int DEFAULT NULL,
   `votesFirst` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`awardID`, `yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
