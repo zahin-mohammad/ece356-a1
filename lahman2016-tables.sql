@@ -498,12 +498,13 @@ CREATE TABLE `ManagersHalf` (
 -- ----------------------------
 DROP TABLE IF EXISTS `Parks`;
 CREATE TABLE `Parks` (
-  `park.key` varchar(255) DEFAULT NULL,
+  `park.key` varchar(255) NOT NULL,
   `park.name` varchar(255) DEFAULT NULL,
   `park.alias` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL
+  `country` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`park.key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
