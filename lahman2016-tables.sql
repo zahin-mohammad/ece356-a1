@@ -352,12 +352,13 @@ CREATE TABLE `Fielding` (
 -- ----------------------------
 DROP TABLE IF EXISTS `FieldingOF`;
 CREATE TABLE `FieldingOF` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `stint` int DEFAULT NULL,
   `Glf` int DEFAULT NULL,
   `Gcf` int DEFAULT NULL,
   `Grf` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
@@ -366,8 +367,8 @@ CREATE TABLE `FieldingOF` (
 -- ----------------------------
 DROP TABLE IF EXISTS `FieldingOFsplit`;
 CREATE TABLE `FieldingOFsplit` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `stint` int DEFAULT NULL,
   `teamID` varchar(255) DEFAULT NULL,
   `lgID` varchar(255) DEFAULT NULL,
@@ -384,6 +385,7 @@ CREATE TABLE `FieldingOFsplit` (
   `SB` varchar(255) DEFAULT NULL,
   `CS` varchar(255) DEFAULT NULL,
   `ZR` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
@@ -393,8 +395,8 @@ CREATE TABLE `FieldingOFsplit` (
 -- ----------------------------
 DROP TABLE IF EXISTS `FieldingPost`;
 CREATE TABLE `FieldingPost` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `teamID` varchar(255) DEFAULT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `round` varchar(255) DEFAULT NULL,
@@ -410,6 +412,7 @@ CREATE TABLE `FieldingPost` (
   `PB` varchar(255) DEFAULT NULL,
   `SB` varchar(255) DEFAULT NULL,
   `CS` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
