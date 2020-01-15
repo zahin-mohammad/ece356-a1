@@ -206,6 +206,7 @@ CREATE TABLE `AwardsPlayers` (
   `lgID` varchar(255) DEFAULT NULL,
   `tie` varchar(255) DEFAULT NULL,
   `notes` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`awardID`,`yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
