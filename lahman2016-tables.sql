@@ -422,15 +422,16 @@ CREATE TABLE `FieldingPost` (
 -- ----------------------------
 DROP TABLE IF EXISTS `HallOfFame`;
 CREATE TABLE `HallOfFame` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearid` int DEFAULT NULL,
-  `votedBy` varchar(255) DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearid` int NOT NULL,
+  `votedBy` varchar(255) NOT NULL,
   `ballots` int DEFAULT NULL,
   `needed` int DEFAULT NULL,
   `votes` int DEFAULT NULL,
   `inducted` varchar(255) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
   `needed_note` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`votedBy`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
