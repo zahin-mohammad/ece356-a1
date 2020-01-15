@@ -311,7 +311,6 @@ CREATE TABLE `FieldingPost` (
   `PB` varchar(255) DEFAULT NULL,
   `SB` varchar(255) DEFAULT NULL,
   `CS` varchar(255) DEFAULT NULL,
-  `ZR` varchar(255) DEFAULT NULL,
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
