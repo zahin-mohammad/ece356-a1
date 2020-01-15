@@ -49,6 +49,17 @@ CREATE TABLE `Master` (
   PRIMARY KEY (`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
+-- ----------------------------
+--  Table structure for `TeamsFranchises`
+-- ----------------------------
+DROP TABLE IF EXISTS `TeamsFranchises`;
+CREATE TABLE `TeamsFranchises` (
+  `franchID` varchar(255) NOT NULL,
+  `franchName` varchar(255) DEFAULT NULL,
+  `active` varchar(255) DEFAULT NULL,
+  `NAassoc` varchar(255) DEFAULT NULL,
+  PRIMARY KEY(`franchID`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
 --  Table structure for `Teams`
@@ -103,7 +114,8 @@ CREATE TABLE `Teams` (
   `teamIDBR` varchar(255) DEFAULT NULL,
   `teamIDlahman45` varchar(255) DEFAULT NULL,
   `teamIDretro` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`teamID`)
+  PRIMARY KEY (`teamID`),
+  FOREIGN KEY (`franchID`) REFERENCES TeamsFranchises(`franchID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
@@ -584,17 +596,6 @@ CREATE TABLE `SeriesPost` (
   `ties` int DEFAULT NULL,
   FOREIGN KEY (`teamIDwinner`) REFERENCES Teams(`teamID`),
   FOREIGN KEY (`teamIDloser`) REFERENCES Teams(`teamID`)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
-
--- ----------------------------
---  Table structure for `TeamsFranchises`
--- ----------------------------
-DROP TABLE IF EXISTS `TeamsFranchises`;
-CREATE TABLE `TeamsFranchises` (
-  `franchID` varchar(255) DEFAULT NULL,
-  `franchName` varchar(255) DEFAULT NULL,
-  `active` varchar(255) DEFAULT NULL,
-  `NAassoc` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
