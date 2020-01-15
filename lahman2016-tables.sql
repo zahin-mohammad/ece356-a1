@@ -311,9 +311,10 @@ CREATE TABLE `BattingPost` (
 -- ----------------------------
 DROP TABLE IF EXISTS `CollegePlaying`;
 CREATE TABLE `CollegePlaying` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `schoolID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `schoolID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
+  PRIMARY KEY (`playerID`,`schoolID`,`yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`schoolID`) REFERENCES Schools(`schoolID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
