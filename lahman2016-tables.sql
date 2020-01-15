@@ -324,8 +324,8 @@ CREATE TABLE `CollegePlaying` (
 -- ----------------------------
 DROP TABLE IF EXISTS `Fielding`;
 CREATE TABLE `Fielding` (
-  `playerID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `stint` int DEFAULT NULL,
   `teamID` varchar(255) DEFAULT NULL,
   `lgID` varchar(255) DEFAULT NULL,
@@ -342,6 +342,7 @@ CREATE TABLE `Fielding` (
   `SB` varchar(255) DEFAULT NULL,
   `CS` varchar(255) DEFAULT NULL,
   `ZR` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
