@@ -79,7 +79,7 @@ CREATE TABLE `Schools` (
 -- ----------------------------
 DROP TABLE IF EXISTS `Teams`;
 CREATE TABLE `Teams` (
-  `yearID` int DEFAULT NULL,
+  `yearID` int NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `teamID` varchar(255) NOT NULL,
   `franchID` varchar(255) DEFAULT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE `Teams` (
   `teamIDBR` varchar(255) DEFAULT NULL,
   `teamIDlahman45` varchar(255) DEFAULT NULL,
   `teamIDretro` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`teamID`),
+  PRIMARY KEY (`teamID`, `yearID`),
   FOREIGN KEY (`franchID`) REFERENCES TeamsFranchises(`franchID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
