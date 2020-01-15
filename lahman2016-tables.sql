@@ -440,15 +440,16 @@ CREATE TABLE `HallOfFame` (
 -- ----------------------------
 DROP TABLE IF EXISTS `HomeGames`;
 CREATE TABLE `HomeGames` (
-  `year.key` int DEFAULT NULL,
+  `year.key` int NOT NULL,
   `league.key` varchar(255) DEFAULT NULL,
-  `team.key` varchar(255) DEFAULT NULL,
-  `park.key` varchar(255) DEFAULT NULL,
+  `team.key` varchar(255) NOT NULL,
+  `park.key` varchar(255) NOT NULL,
   `span.first` varchar(255) DEFAULT NULL,
   `span.last` varchar(255) DEFAULT NULL,
   `games` int DEFAULT NULL,
   `openings` int DEFAULT NULL,
-  `attendance` int DEFAULT NULL
+  `attendance` int DEFAULT NULL,
+  PRIMARY KEY (`year.key`,`team.key`,`park.key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
