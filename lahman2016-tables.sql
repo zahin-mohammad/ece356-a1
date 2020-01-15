@@ -231,13 +231,14 @@ CREATE TABLE `AwardsShareManagers` (
 -- ----------------------------
 DROP TABLE IF EXISTS `AwardsSharePlayers`;
 CREATE TABLE `AwardsSharePlayers` (
-  `awardID` varchar(255) DEFAULT NULL,
-  `yearID` int DEFAULT NULL,
+  `awardID` varchar(255) NOT NULL,
+  `yearID` int NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
-  `playerID` varchar(255) DEFAULT NULL,
+  `playerID` varchar(255) NOT NULL,
   `pointsWon` int DEFAULT NULL,
   `pointsMax` int DEFAULT NULL,
   `votesFirst` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`awardID`, `yearID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
