@@ -269,6 +269,7 @@ CREATE TABLE `Batting` (
   `SH` varchar(255) DEFAULT NULL,
   `SF` varchar(255) DEFAULT NULL,
   `GIDP` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`, `yearID`, `teamID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
