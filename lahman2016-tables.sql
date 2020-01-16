@@ -344,7 +344,7 @@ CREATE TABLE `Fielding` (
   `stint` int DEFAULT NULL,
   `teamID` varchar(255) DEFAULT NULL,
   `lgID` varchar(255) DEFAULT NULL,
-  `POS` varchar(255) DEFAULT NULL,
+  `POS` varchar(255) NOT NULL,
   `G` int DEFAULT NULL,
   `GS` varchar(255) DEFAULT NULL,
   `InnOuts` varchar(255) DEFAULT NULL,
@@ -357,7 +357,7 @@ CREATE TABLE `Fielding` (
   `SB` varchar(255) DEFAULT NULL,
   `CS` varchar(255) DEFAULT NULL,
   `ZR` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`playerID`,`yearID`),
+  PRIMARY KEY (`playerID`,`yearID`, `POS`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
@@ -387,7 +387,7 @@ CREATE TABLE `FieldingOFsplit` (
   `stint` int DEFAULT NULL,
   `teamID` varchar(255) DEFAULT NULL,
   `lgID` varchar(255) DEFAULT NULL,
-  `POS` varchar(255) DEFAULT NULL,
+  `POS` varchar(255) NOT NULL,
   `G` int DEFAULT NULL,
   `GS` int DEFAULT NULL,
   `InnOuts` int DEFAULT NULL,
@@ -400,7 +400,7 @@ CREATE TABLE `FieldingOFsplit` (
   `SB` varchar(255) DEFAULT NULL,
   `CS` varchar(255) DEFAULT NULL,
   `ZR` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`playerID`,`yearID`),
+  PRIMARY KEY (`playerID`,`yearID`,`POS`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
