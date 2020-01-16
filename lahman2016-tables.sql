@@ -218,10 +218,10 @@ CREATE TABLE `AwardsPlayers` (
   `playerID` varchar(255) NOT NULL,
   `awardID` varchar(255) NOT NULL,
   `yearID` int NOT NULL,
-  `lgID` varchar(255) DEFAULT NULL,
+  `lgID` varchar(255) NOT NULL,
   `tie` varchar(255) DEFAULT NULL,
   `notes` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`playerID`,`awardID`,`yearID`),
+  PRIMARY KEY (`playerID`,`awardID`,`yearID`, `lgID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
