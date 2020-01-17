@@ -414,8 +414,8 @@ CREATE TABLE `FieldingPost` (
   `yearID` int NOT NULL,
   `teamID` varchar(255) DEFAULT NULL,
   `lgID` varchar(255) DEFAULT NULL,
-  `round` varchar(255) DEFAULT NULL,
-  `POS` varchar(255) DEFAULT NULL,
+  `round` varchar(255) NOT NULL,
+  `POS` varchar(255) NOT NULL,
   `G` int DEFAULT NULL,
   `GS` int DEFAULT NULL,
   `InnOuts` int DEFAULT NULL,
@@ -427,6 +427,7 @@ CREATE TABLE `FieldingPost` (
   `PB` varchar(255) DEFAULT NULL,
   `SB` varchar(255) DEFAULT NULL,
   `CS` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`POS`,`round`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
