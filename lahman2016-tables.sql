@@ -155,7 +155,7 @@ CREATE TABLE `AllstarFull` (
   `yearID` int NOT NULL,
   `gameNum` int DEFAULT NULL,
   `gameID` varchar(255) NOT NULL,
-  `teamID` varchar(255) DEFAULT NULL,
+  `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `GP` int DEFAULT NULL,
   `startingPos` varchar(255) DEFAULT NULL,
@@ -190,6 +190,7 @@ CREATE TABLE `Appearances` (
   `G_dh` varchar(255) DEFAULT NULL,
   `G_ph` varchar(255) DEFAULT NULL,
   `G_pr` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`teamID`,`lgID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
