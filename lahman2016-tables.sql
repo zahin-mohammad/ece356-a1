@@ -584,7 +584,7 @@ CREATE TABLE `PitchingPost` (
   `SH` int DEFAULT NULL,
   `SF` int DEFAULT NULL,
   `GIDP` int DEFAULT NULL,
-  -- PRIMARY KEY (`playerID`, `yearID`,`teamID`,`round`),
+  PRIMARY KEY (`playerID`, `yearID`,`teamID`,`round`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
