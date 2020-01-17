@@ -477,12 +477,13 @@ CREATE TABLE `Managers` (
   `yearID` int NOT NULL,
   `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
-  `inseason` int DEFAULT NULL,
+  `inseason` int NOT NULL,
   `G` int DEFAULT NULL,
   `W` int DEFAULT NULL,
   `L` int DEFAULT NULL,
   `rank` int DEFAULT NULL,
   `plyrMgr` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`, `yearID`, `teamID`, `inseason`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
