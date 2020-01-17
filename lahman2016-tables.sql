@@ -369,10 +369,11 @@ DROP TABLE IF EXISTS `FieldingOF`;
 CREATE TABLE `FieldingOF` (
   `playerID` varchar(255) NOT NULL,
   `yearID` int NOT NULL,
-  `stint` int DEFAULT NULL,
+  `stint` int NOT NULL,
   `Glf` int DEFAULT NULL,
   `Gcf` int DEFAULT NULL,
   `Grf` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`stint`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
