@@ -237,6 +237,7 @@ CREATE TABLE `AwardsShareManagers` (
   `pointsWon` int DEFAULT NULL,
   `pointsMax` int DEFAULT NULL,
   `votesFirst` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`lgID`,`awardID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
@@ -252,6 +253,7 @@ CREATE TABLE `AwardsSharePlayers` (
   `pointsWon` int DEFAULT NULL,
   `pointsMax` int DEFAULT NULL,
   `votesFirst` int DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`lgID`,`awardID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
