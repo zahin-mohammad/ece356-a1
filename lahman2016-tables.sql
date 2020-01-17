@@ -446,6 +446,7 @@ CREATE TABLE `HallOfFame` (
   `inducted` varchar(255) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
   `needed_note` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`votedBy`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
