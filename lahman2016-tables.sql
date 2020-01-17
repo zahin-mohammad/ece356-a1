@@ -516,7 +516,7 @@ DROP TABLE IF EXISTS `Pitching`;
 CREATE TABLE `Pitching` (
   `playerID` varchar(255) NOT NULL,
   `yearID` int NOT NULL,
-  `stint` int DEFAULT NULL,
+  `stint` int NOT NULL,
   `teamID` varchar(255) NOT NULL,
   `lgID` varchar(255) DEFAULT NULL,
   `W` int DEFAULT NULL,
@@ -544,6 +544,7 @@ CREATE TABLE `Pitching` (
   `SH` varchar(255) DEFAULT NULL,
   `SF` varchar(255) DEFAULT NULL,
   `GIDP` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`teamID`, `stint`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
