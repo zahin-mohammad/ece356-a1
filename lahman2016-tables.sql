@@ -159,6 +159,7 @@ CREATE TABLE `AllstarFull` (
   `lgID` varchar(255) DEFAULT NULL,
   `GP` int DEFAULT NULL,
   `startingPos` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`playerID`,`yearID`,`teamID`,`gameID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
