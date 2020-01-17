@@ -599,6 +599,7 @@ CREATE TABLE `Salaries` (
   `lgID` varchar(255) DEFAULT NULL,
   `playerID` varchar(255) NOT NULL,
   `salary` int DEFAULT NULL,
+  PRIMARY KEY (`yearID`, `teamID`, `playerID`),
   FOREIGN KEY (`playerID`) REFERENCES Master(`playerID`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
