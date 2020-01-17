@@ -618,6 +618,7 @@ CREATE TABLE `SeriesPost` (
   `wins` int DEFAULT NULL,
   `losses` int DEFAULT NULL,
   `ties` int DEFAULT NULL,
+  PRIMARY KEY (`yearID`, `round`,`teamIDWinner`,`teamIDLoser`),
   FOREIGN KEY (`teamIDwinner`) REFERENCES Teams(`teamID`),
   FOREIGN KEY (`teamIDloser`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
@@ -637,6 +638,7 @@ CREATE TABLE `TeamsHalf` (
   `G` int DEFAULT NULL,
   `W` int DEFAULT NULL,
   `L` decimal(11) DEFAULT NULL,
+  PRIMARY KEY (`yearID`,`teamID`,`Half`),
   FOREIGN KEY (`teamID`) REFERENCES Teams(`teamID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 \w
