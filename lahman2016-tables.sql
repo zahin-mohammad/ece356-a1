@@ -464,6 +464,7 @@ CREATE TABLE `HomeGames` (
   `games` int DEFAULT NULL,
   `openings` int DEFAULT NULL,
   `attendance` int DEFAULT NULL,
+  PRIMARY KEY (`park.key`,`team.key`,`year.key`),
   FOREIGN KEY (`park.key`) REFERENCES Parks(`park.key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
