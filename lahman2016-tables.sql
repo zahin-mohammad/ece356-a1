@@ -45,8 +45,7 @@ CREATE TABLE `Master` (
   `debut` varchar(255) DEFAULT NULL,
   `finalGame` varchar(255) DEFAULT NULL,
   `retroID` varchar(255) DEFAULT NULL,
-  `bbrefID` varchar(255) DEFAULT NULL,
-  -- PRIMARY KEY (`playerID`)
+  `bbrefID` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
@@ -57,8 +56,7 @@ CREATE TABLE `TeamsFranchises` (
   `franchID` varchar(255) NOT NULL,
   `franchName` varchar(255) DEFAULT NULL,
   `active` varchar(255) DEFAULT NULL,
-  `NAassoc` varchar(255) DEFAULT NULL,
-  -- PRIMARY KEY(`franchID`)
+  `NAassoc` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
@@ -70,8 +68,7 @@ CREATE TABLE `Schools` (
   `name_full` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  -- PRIMARY KEY(`schoolID`)
+  `country` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 -- ----------------------------
@@ -126,8 +123,7 @@ CREATE TABLE `Teams` (
   `PPF` int DEFAULT NULL,
   `teamIDBR` varchar(255) DEFAULT NULL,
   `teamIDlahman45` varchar(255) DEFAULT NULL,
-  `teamIDretro` varchar(255) DEFAULT NULL,
-  -- PRIMARY KEY (`teamID`, `yearID`),
+  `teamIDretro` varchar(255) DEFAULT NULL
   FOREIGN KEY (`franchID`) REFERENCES TeamsFranchises(`franchID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
