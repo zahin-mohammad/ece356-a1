@@ -14,7 +14,7 @@ INSERT INTO Master (playerid) (SELECT DISTINCT playerid FROM Salaries WHERE play
 -- DELETE FROM HallOfFame WHERE playerid NOT IN (SELECT playerid FROM Master);
 -- DELETE FROM Salaries WHERE playerid NOT in (select playerid FROM Master);
 
-SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;
 
 SELECT DISTINCT schoolid FROM CollegePlaying WHERE schoolid NOT IN (SELECT schoolid FROM Schools);
 SELECT DISTINCT playerid FROM HallOfFame WHERE playerid NOT IN (SELECT playerid from Master);
