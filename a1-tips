@@ -1,0 +1,22 @@
+- turn on and off foreign key checks
+- foreign key is wrong?
+- shouldnt have data in referencing table, or need it in the referenced table ( get rid of the bad data)
+
+- add row in refrenced table if foreign key is missing
+
+
+ Disable primary keys, insert data, then test potential primary key using the SQL command below, where `a1,a2...an` are the potential primary key attributes, and r1 is the relation being test.
+    ```
+    SELECT b.* 
+    FROM (
+        SELECT <a1,a2,...an>, count(*) as cnt 
+        FROM <r1> 
+        GROUP BY <a1,a2,...an> 
+        HAVING cnt >1) as one 
+    LEFT JOIN <r1> as b 
+    ON b.playerid = one.playerid 
+    AND b.yearid = one.yearid 
+    AND b.teamid = one.teamid 
+    AND b.gameid = one.gameid 
+    ORDER BY <b.a1, b.a2,...b.an>\G;
+    ```

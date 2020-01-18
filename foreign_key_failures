@@ -1,0 +1,36 @@
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`baseball2016`.`CollegePlaying`, CONSTRAINT `CollegePlaying_ibfk_2` FOREIGN KEY (`schoolID`) REFERENCES `Schools` (`schoolID`))
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`baseball2016`.`CollegePlaying`, CONSTRAINT `CollegePlaying_ibfk_2` FOREIGN KEY (`schoolID`) REFERENCES `Schools` (`schoolID`))
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`baseball2016`.`CollegePlaying`, CONSTRAINT `CollegePlaying_ibfk_2` FOREIGN KEY (`schoolID`) REFERENCES `Schools` (`schoolID`))
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`baseball2016`.`CollegePlaying`, CONSTRAINT `CollegePlaying_ibfk_2` FOREIGN KEY (`schoolID`) REFERENCES `Schools` (`schoolID`))
+select schoolID from CollegePlaying where schoolID not in (select schoolID from Schools);
+schoolID
+caallia
+caallia
+ctpostu
+ctpostu
+ctpostu
+ctpostu
+ctpostu
+ctpostu
+txrange
+txutper
+
+
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`baseball2016`.`HallOfFame`, CONSTRAINT `HallOfFame_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `Master` (`playerID`))
+select playerID from HallOfFame where playerID not in (select playerid from Master);
+playerID
+drewj.01
+
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`baseball2016`.`Salaries`, CONSTRAINT `Salaries_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `Master` (`playerID`))
+select playerid from Salaries where playerid not in (select playerid from Master);
+playerid
+castiru02
+dicker.01
+harriwi10
+montafr02
+pierza.01
+rosajo01
+sabatc.01
+willima10
+
+insert into Master (playerid) (select distinct(playerid) from Salaries where playerid not in (select playerid from Master));
