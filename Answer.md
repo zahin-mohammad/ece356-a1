@@ -50,4 +50,13 @@
     -- Should be empty set
     SELECT DISTINCT playerid FROM Salaries WHERE playerid NOT IN (SELECT playerid from Master);
     ```
-2. 
+2. The SQL file has a very large number of INSERT statements in order to load the data into the database.  It is typically preferred to load data directly from source files.  In the case of the Baseball data, the course files are “Comma-Separated Variable” (or CSV) files.  Create a LOAD statement that will load the data for the Batting CSV (Batting.csv) into its associated table.  You should verify that your LOAD statement operates correctly and issues no warnings. Where is the CSV data located relative to the CLI and to the DB Server? Time how long it takes to LOAD the CSV vs. Using the equivalent INSERT statement method.
+   1. Can load files from the the directory specified with `secure_file_priv`
+    ```
+    SHOW VARIABLES LIKE "secure_file_priv";
+    +------------------+-----------------------+
+    | Variable_name    | Value                 |
+    +------------------+-----------------------+
+    | secure_file_priv | /var/lib/mysql-files/ |
+    +------------------+-----------------------+
+    ```
